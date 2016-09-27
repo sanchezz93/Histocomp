@@ -13,6 +13,7 @@ public class MovementSystem : MonoBehaviour {
 	void Update () {
 		if (GvrViewer.Instance.Triggered || Input.GetKeyDown("space")) {
 			Debug.Log ("PRESS");
+			speed = 1.5f;
 		}
 		gameObject.transform.Translate (Vector3.right * speed * Time.deltaTime);
 
