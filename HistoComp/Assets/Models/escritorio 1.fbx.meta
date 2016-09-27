@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 0e290158091c6c6459575f9aadba3c4b
-timeCreated: 1474924828
+guid: fb8b1522b50e74bd0baa8f21f904d7bc
+timeCreated: 1475003415
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Lamp
+    100004: Plane
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
-    6400000: //RootNode
+    400002: Lamp
+    400004: Plane
+    2300000: Plane
+    3300000: Plane
+    4300000: Plane
   materials:
     importMaterials: 1
     materialName: 0
@@ -37,7 +40,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

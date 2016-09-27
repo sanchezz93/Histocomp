@@ -1,19 +1,15 @@
 fileFormatVersion: 2
-guid: 1145016d5a55d4a4db79b718193ddaf1
-timeCreated: 1474924836
+guid: b262be84b204d4ceb9222697d3f85cd6
+timeCreated: 1475003391
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Lamp
-    100004: Plane
     400000: //RootNode
-    400002: Lamp
-    400004: Plane
-    2300000: Plane
-    3300000: Plane
-    4300000: Plane
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
   materials:
     importMaterials: 1
     materialName: 0
