@@ -1,0 +1,186 @@
+fileFormatVersion: 2
+guid: 57d91b641a5a74247acde643c3ea217f
+timeCreated: 1475075497
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Base
+    100004: Camera
+    100006: Cube.002
+    100008: Diskettera
+    100010: Lamp
+    100012: Lamp.001
+    100014: Lamp.002
+    100016: Monitor
+    100018: Placa1
+    100020: Placa2
+    100022: Placa3
+    100024: PlacaBase
+    100026: Plane.004
+    100028: TapaBase
+    100030: Teclado
+    400000: //RootNode
+    400002: Base
+    400004: Camera
+    400006: Cube.002
+    400008: Diskettera
+    400010: Lamp
+    400012: Lamp.001
+    400014: Lamp.002
+    400016: Monitor
+    400018: Placa1
+    400020: Placa2
+    400022: Placa3
+    400024: PlacaBase
+    400026: Plane.004
+    400028: TapaBase
+    400030: Teclado
+    2300000: Base
+    2300002: Cube.002
+    2300004: Diskettera
+    2300006: Monitor
+    2300008: Placa1
+    2300010: Placa2
+    2300012: Placa3
+    2300014: PlacaBase
+    2300016: Plane.004
+    2300018: TapaBase
+    2300020: Teclado
+    3300000: Base
+    3300002: Cube.002
+    3300004: Diskettera
+    3300006: Monitor
+    3300008: Placa1
+    3300010: Placa2
+    3300012: Placa3
+    3300014: PlacaBase
+    3300016: Plane.004
+    3300018: TapaBase
+    3300020: Teclado
+    4300000: Plane.004
+    4300002: Base
+    4300004: Diskettera
+    4300006: Cube.002
+    4300008: TapaBase
+    4300010: Teclado
+    4300012: PlacaBase
+    4300014: Placa3
+    4300016: Placa2
+    4300018: Placa1
+    4300020: Monitor
+    7400000: Base|CDA:ObIpo
+    7400002: Base|CDA:ObIpo.001
+    7400004: Base|CDA:ObIpo.003
+    7400006: Base|CDA:ObIpo.004
+    7400008: Base|CDA:ObIpo.005
+    7400010: Base|CDA:ObIpo.006
+    7400012: Base|CDA:ObIpo.007
+    7400014: Diskettera|CDA:ObIpo
+    7400016: Diskettera|CDA:ObIpo.001
+    7400018: Diskettera|CDA:ObIpo.003
+    7400020: Diskettera|CDA:ObIpo.004
+    7400022: Diskettera|CDA:ObIpo.005
+    7400024: Diskettera|CDA:ObIpo.006
+    7400026: Diskettera|CDA:ObIpo.007
+    7400028: TapaBase|CDA:ObIpo
+    7400030: TapaBase|CDA:ObIpo.001
+    7400032: TapaBase|CDA:ObIpo.003
+    7400034: TapaBase|CDA:ObIpo.004
+    7400036: TapaBase|CDA:ObIpo.005
+    7400038: TapaBase|CDA:ObIpo.006
+    7400040: TapaBase|CDA:ObIpo.007
+    7400042: Placa3|CDA:ObIpo
+    7400044: Placa3|CDA:ObIpo.001
+    7400046: Placa3|CDA:ObIpo.003
+    7400048: Placa3|CDA:ObIpo.004
+    7400050: Placa3|CDA:ObIpo.005
+    7400052: Placa3|CDA:ObIpo.006
+    7400054: Placa3|CDA:ObIpo.007
+    7400056: Placa2|CDA:ObIpo
+    7400058: Placa2|CDA:ObIpo.001
+    7400060: Placa2|CDA:ObIpo.003
+    7400062: Placa2|CDA:ObIpo.004
+    7400064: Placa2|CDA:ObIpo.005
+    7400066: Placa2|CDA:ObIpo.006
+    7400068: Placa2|CDA:ObIpo.007
+    7400070: Placa1|CDA:ObIpo
+    7400072: Placa1|CDA:ObIpo.001
+    7400074: Placa1|CDA:ObIpo.003
+    7400076: Placa1|CDA:ObIpo.004
+    7400078: Placa1|CDA:ObIpo.005
+    7400080: Placa1|CDA:ObIpo.006
+    7400082: Placa1|CDA:ObIpo.007
+    7400084: Monitor|CDA:ObIpo
+    7400086: Monitor|CDA:ObIpo.001
+    7400088: Monitor|CDA:ObIpo.003
+    7400090: Monitor|CDA:ObIpo.004
+    7400092: Monitor|CDA:ObIpo.005
+    7400094: Monitor|CDA:ObIpo.006
+    7400096: Monitor|CDA:ObIpo.007
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

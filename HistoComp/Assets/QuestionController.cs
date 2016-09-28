@@ -81,7 +81,7 @@ public class QuestionController : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0) || GvrViewer.Instance.Triggered) {
 			Debug.Log ("gg");
-			if (Physics.Raycast (ray, 1000.0f, out hit)) {
+			if (Physics.Raycast (ray, out hit, 1000.0f)) {
 				Debug.Log (hit.distance);
 			}
 		}
