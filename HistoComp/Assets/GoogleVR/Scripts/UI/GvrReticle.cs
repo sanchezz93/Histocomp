@@ -21,6 +21,7 @@ using UnityEngine;
 public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   /// Number of segments making the reticle circle.
   public int reticleSegments = 20;
+  public QuestionController qstController;
 
   /// Growth speed multiplier for the reticle/
   public float reticleGrowthSpeed = 8.0f;
@@ -92,8 +93,8 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   /// point of the ray sent from the camera on the object.
   public void OnGazeStart(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                           bool isInteractive) {
-    SetGazeTarget(intersectionPosition, isInteractive);
-  }
+        SetGazeTarget(intersectionPosition, isInteractive);
+    }
 
   /// Called every frame the user is still looking at a valid GameObject. This
   /// can be a 3D or UI element.
@@ -103,7 +104,15 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   /// ray sent from the camera on the object.
   public void OnGazeStay(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                          bool isInteractive) {
-    SetGazeTarget(intersectionPosition, isInteractive);
+        SetGazeTarget(intersectionPosition, isInteractive);
+        if(!qstController.flag)
+        {
+            if (Input.GetMouseButtonDown(0) || GvrViewer.Instance.Triggered)
+            {
+                targetObject.GetComponent<Renderer>().material.color = new Color(0f, 0.191f, 0.60f);
+                qstController.flag = true;
+            }
+        }
   }
 
   /// Called when the user's look no longer intersects an object previously

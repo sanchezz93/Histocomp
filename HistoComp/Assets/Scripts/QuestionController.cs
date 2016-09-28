@@ -11,8 +11,8 @@ public class QuestionController : MonoBehaviour {
 	//Dos arreglos, preguntas (3), respuestas (4 por cada pregunta)
 	string[] arrPreguntas = new string[] {"En que siglo se elaboro la maquina analitica?","Cual es el nombre del creador de la maquina analitica","Como inicio esta idea"};
 	string[] arrRespuestas = new string[] {"XVII","XVIII","XIX","XX","Charles Barlow","Chad Barnett","Chad Barlow","Charles Babbage","Para enviar mensajes","Para elaborar tablas matematicas","Para guardar informacion","Para analizar textos"};
- 	
 
+    public bool flag;
 
 	public TextMesh pregunta;
 	public TextMesh respuesta1;
@@ -25,19 +25,20 @@ public class QuestionController : MonoBehaviour {
 	public GameObject bt3;
 	public GameObject bt4;
 
+    int iPregunta;
+    Color option = new Color(0.66f, 0.1f, 0.24f);
+    Color answer = new Color(0f, 0.191f, 0.60f);
 
-	RaycastHit hit;
-
-	// Use this for initialization
-	void Start () {
-
-		/*
+    // Use this for initialization
+    void Start () {
+        resetButtonColors();
+        /*
 		 *Al iniciar el programa, se carga una pregunta aleatoria para mi puerta. 
 		 */
-
+        flag = false;
 		//Generamos números aleatorios entre 0 y 3
 		System.Random random = new System.Random();
-		int iPregunta = random.Next(0, 3);
+	    iPregunta = random.Next(0, 3);
 
 		//Pasamos la pregunta del arreglo a una variable
 		string sPregunta = arrPreguntas [iPregunta];
@@ -73,21 +74,50 @@ public class QuestionController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
-		// Use Screen.height because many functions (like this one) start in the bottom left of the screen, while MousePosition starts in the top left
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-
-		if (Input.GetMouseButtonDown(0) || GvrViewer.Instance.Triggered) {
-			Debug.Log ("gg");
-			if (Physics.Raycast (ray, out hit, 1000.0f)) {
-				Debug.Log (hit.distance);
-			}
-		}
-
+        if(flag)
+        {
+            switch (iPregunta)
+            {
+                case 0:
+                    if (bt2.GetComponent<Renderer>().material.color == answer)
+                        rightAnswer();
+                    else
+                       Start();
+                    break;
+                case 1:
+                    if (bt4.GetComponent<Renderer>().material.color == answer)
+                        rightAnswer();
+                    else
+                        Start();
+                    break;
+                case 2:
+                    if (bt3.GetComponent<Renderer>().material.color == answer)
+                        rightAnswer();
+                    else
+                       Start();
+                    break;
+            }
+        }
 	}
 
+    void resetButtonColors() {
+        bt1.GetComponent<Renderer>().material.color = option;
+        bt2.GetComponent<Renderer>().material.color = option;
+        bt3.GetComponent<Renderer>().material.color = option;
+        bt4.GetComponent<Renderer>().material.color = option;
+    }
+
+    void rightAnswer() {
+        pregunta.text = "Correcto!";
+        Destroy(bt1);
+        Destroy(bt2);
+        Destroy(bt3);
+        Destroy(bt4);
+        Destroy(respuesta1);
+        Destroy(respuesta2);
+        Destroy(respuesta3);
+        Destroy(respuesta4);
+    }
 
 	public void OnPointerClick( PointerEventData data )
 	{
