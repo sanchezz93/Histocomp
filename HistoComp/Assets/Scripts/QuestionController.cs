@@ -9,8 +9,8 @@ public class QuestionController : MonoBehaviour {
 	
 	//ESTO SE MODIFICA PARA CADA PUERTA
 	//Dos arreglos, preguntas (3), respuestas (4 por cada pregunta)
-	string[] arrPreguntas = new string[] {"En que siglo se elaboro la maquina analitica?","Cual es el nombre del creador de la maquina analitica","Como inicio esta idea"};
-	string[] arrRespuestas = new string[] {"XVII","XVIII","XIX","XX","Charles Barlow","Chad Barnett","Chad Barlow","Charles Babbage","Para enviar mensajes","Para elaborar tablas matematicas","Para guardar informacion","Para analizar textos"};
+	public string[] arrPreguntas = new string[] {"En que siglo se elaboro la maquina analitica?","Cual es el nombre del creador de la maquina analitica","Como inicio esta idea"};
+	public string[] arrRespuestas = new string[] {"XVII","XVIII","XIX","XX","Charles Barlow","Chad Barnett","Chad Barlow","Charles Babbage","Para enviar mensajes","Para elaborar tablas matematicas","Para guardar informacion","Para analizar textos"};
 
     public bool flag;
 
@@ -78,25 +78,35 @@ public class QuestionController : MonoBehaviour {
         {
             switch (iPregunta)
             {
-                case 0:
-                    if (bt2.GetComponent<Renderer>().material.color == answer)
-                        rightAnswer();
-                    else
-                       Start();
+				case 0:
+					if (bt2.GetComponent<Renderer> ().material.color == answer) {
+						rightAnswer ();
+					} else {
+	                    Start();
+						MovementSystem.speed = 1.5f;
+						MovementSystem.direction = -1;
+					}
                     break;
                 case 1:
-                    if (bt4.GetComponent<Renderer>().material.color == answer)
-                        rightAnswer();
-                    else
-                        Start();
+					if (bt4.GetComponent<Renderer>().material.color == answer) {
+	                	rightAnswer();
+					} else {
+						Start();
+						MovementSystem.speed = 1.5f;
+						MovementSystem.direction = -1;
+					}
                     break;
                 case 2:
-                    if (bt3.GetComponent<Renderer>().material.color == answer)
+					if (bt3.GetComponent<Renderer>().material.color == answer) {
                         rightAnswer();
-                    else
-                       Start();
+					} else {
+						Start();
+						MovementSystem.speed = 1.5f;
+						MovementSystem.direction = -1;
+					}
                     break;
             }
+			flag = false;
         }
 	}
 
@@ -108,6 +118,8 @@ public class QuestionController : MonoBehaviour {
     }
 
     void rightAnswer() {
+		MovementSystem.speed = 1.5f;
+		MovementSystem.direction = 1;
         pregunta.text = "Correcto!";
         Destroy(bt1);
         Destroy(bt2);

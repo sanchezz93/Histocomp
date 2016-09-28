@@ -105,14 +105,14 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   public void OnGazeStay(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                          bool isInteractive) {
         SetGazeTarget(intersectionPosition, isInteractive);
-        if(!qstController.flag)
-        {
-            if (Input.GetMouseButtonDown(0) || GvrViewer.Instance.Triggered)
-            {
-                targetObject.GetComponent<Renderer>().material.color = new Color(0f, 0.191f, 0.60f);
-                qstController.flag = true;
-            }
-        }
+		if (!MovementSystem.viewingArt && MovementSystem.speed == 0 && (Input.GetMouseButtonDown (0) || GvrViewer.Instance.Triggered)) {
+			if (!qstController.flag) {
+				targetObject.GetComponent<Renderer> ().material.color = new Color (0f, 0.191f, 0.60f);
+				qstController.flag = true;
+				MovementSystem.viewingArt = true;
+
+			}
+		}
   }
 
   /// Called when the user's look no longer intersects an object previously
