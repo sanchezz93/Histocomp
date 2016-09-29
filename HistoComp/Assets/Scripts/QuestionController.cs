@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine.EventSystems;
 
 
@@ -11,7 +8,9 @@ public class QuestionController : MonoBehaviour {
 	//Dos arreglos, preguntas (3), respuestas (4 por cada pregunta)
 	public string[] arrPreguntas = new string[] {"En que siglo se elaboro la maquina analitica?","Cual es el nombre del creador de la maquina analitica","Como inicio esta idea"};
 	public string[] arrRespuestas = new string[] {"XVII","XVIII","XIX","XX","Charles Barlow","Chad Barnett","Chad Barlow","Charles Babbage","Para enviar mensajes","Para elaborar tablas matematicas","Para guardar informacion","Para analizar textos"};
-
+    //0 -3 (2, 3ra)
+    // 4 -7 (7, 4ta)
+    //8 - 11 (9, 2da)
     public bool flag;
 
 	public TextMesh pregunta;
@@ -90,7 +89,7 @@ public class QuestionController : MonoBehaviour {
                 case 1:
 					if (bt4.GetComponent<Renderer>().material.color == answer) {
 	                	rightAnswer();
-					} else {
+                    } else {
 						Start();
 						MovementSystem.speed = 1.5f;
 						MovementSystem.direction = -1;
@@ -99,14 +98,13 @@ public class QuestionController : MonoBehaviour {
                 case 2:
 					if (bt3.GetComponent<Renderer>().material.color == answer) {
                         rightAnswer();
-					} else {
+                    } else {
 						Start();
 						MovementSystem.speed = 1.5f;
 						MovementSystem.direction = -1;
 					}
                     break;
             }
-			flag = false;
         }
 	}
 
@@ -121,14 +119,6 @@ public class QuestionController : MonoBehaviour {
 		MovementSystem.speed = 1.5f;
 		MovementSystem.direction = 1;
         pregunta.text = "Correcto!";
-        Destroy(bt1);
-        Destroy(bt2);
-        Destroy(bt3);
-        Destroy(bt4);
-        Destroy(respuesta1);
-        Destroy(respuesta2);
-        Destroy(respuesta3);
-        Destroy(respuesta4);
     }
 
 	public void OnPointerClick( PointerEventData data )

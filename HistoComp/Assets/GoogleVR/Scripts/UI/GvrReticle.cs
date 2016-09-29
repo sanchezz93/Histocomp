@@ -19,9 +19,12 @@ using UnityEngine;
 [AddComponentMenu("GoogleVR/UI/GvrReticle")]
 [RequireComponent(typeof(Renderer))]
 public class GvrReticle : MonoBehaviour, IGvrGazePointer {
-  /// Number of segments making the reticle circle.
-  public int reticleSegments = 20;
-  public QuestionController qstController;
+    /// Number of segments making the reticle circle.
+    public int reticleSegments = 20;
+    public QuestionController qstController;
+    public QuestionController2 qstController2;
+    public QuestionController3 qstController3;
+    public QuestionController4 qstController4;
 
   /// Growth speed multiplier for the reticle/
   public float reticleGrowthSpeed = 8.0f;
@@ -110,9 +113,29 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
 				targetObject.GetComponent<Renderer> ().material.color = new Color (0f, 0.191f, 0.60f);
 				qstController.flag = true;
 				MovementSystem.viewingArt = true;
-
+                Debug.Log("qst1");
 			}
-		}
+            else if (!qstController2.flag) {
+				targetObject.GetComponent<Renderer> ().material.color = new Color (0f, 0.191f, 0.60f);
+				qstController2.flag = true;
+				MovementSystem.viewingArt = true;
+                Debug.Log("qst2");
+            }
+            else if (!qstController3.flag)
+            {
+                targetObject.GetComponent<Renderer>().material.color = new Color(0f, 0.191f, 0.60f);
+                qstController3.flag = true;
+                MovementSystem.viewingArt = true;
+                Debug.Log("qst3");
+            }
+            else if (!qstController4.flag)
+            {
+                targetObject.GetComponent<Renderer>().material.color = new Color(0f, 0.191f, 0.60f);
+                qstController4.flag = true;
+                MovementSystem.viewingArt = true;
+                Debug.Log("qst4");
+            }
+        }
   }
 
   /// Called when the user's look no longer intersects an object previously

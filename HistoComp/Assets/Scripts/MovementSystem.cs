@@ -9,7 +9,7 @@ public class MovementSystem : MonoBehaviour {
 
 	public static bool answerIsCorrect = false;
 	public static bool viewingArt = false;
-	private int roomNumber = 2;
+	public static int roomNumber = 2;
 
 
 	// Use this for initialization
@@ -33,10 +33,7 @@ public class MovementSystem : MonoBehaviour {
 			direction = 1;
 			viewingArt = true;
 			if (roomNumber <= 5) {
-				SceneManager.LoadScene ("Room" + roomNumber, LoadSceneMode.Additive); // 3
-//				if (roomNumber > 2) { // 3
-//					SceneManager.UnloadScene ("Room" + (roomNumber - 2)); // 1
-//				}
+				SceneManager.LoadScene ("Room" + roomNumber, LoadSceneMode.Additive);
 				roomNumber++;
 			}
 				
