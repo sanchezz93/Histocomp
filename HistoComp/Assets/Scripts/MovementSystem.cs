@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MovementSystem : MonoBehaviour {
 	float VELOCITY = 2.0f;
@@ -8,6 +9,7 @@ public class MovementSystem : MonoBehaviour {
 
 	public static bool answerIsCorrect = false;
 	public static bool viewingArt = false;
+	private int roomNumber = 2;
 
 
 	// Use this for initialization
@@ -30,6 +32,14 @@ public class MovementSystem : MonoBehaviour {
 			speed = 0;
 			direction = 1;
 			viewingArt = true;
+			if (roomNumber <= 5) {
+				SceneManager.LoadScene ("Room" + roomNumber, LoadSceneMode.Additive); // 3
+//				if (roomNumber > 2) { // 3
+//					SceneManager.UnloadScene ("Room" + (roomNumber - 2)); // 1
+//				}
+				roomNumber++;
+			}
+				
 		} else if (direction == -1 && other.gameObject.tag == "brake-reverse") {
 			speed = 0;
 			direction = 1;
