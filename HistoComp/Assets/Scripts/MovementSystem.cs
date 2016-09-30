@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class MovementSystem : MonoBehaviour {
 	float VELOCITY = 2.0f;
 	public static float speed = 1.5f;
@@ -10,19 +11,27 @@ public class MovementSystem : MonoBehaviour {
 	public static bool answerIsCorrect = false;
 	public static bool viewingArt = false;
 	public static int roomNumber = 2;
-
+    AudioSource audio;
 
 	// Use this for initialization
 	void Start () {
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
-	}
+        audio = GetComponent<AudioSource>();
+    }
 
 	// Update is called once per frame
 	void Update () {
 		if (roomNumber <= 6 && viewingArt == true && speed == 0 && (GvrViewer.Instance.Triggered || Input.GetKeyDown("space"))) {
 			Debug.Log ("PRESS MOVEMENT");
 			speed = VELOCITY;
+            audio.Play();
 		}
+        if(speed != 0 && !audio.isPlaying) {
+            audio.Play();
+        }
+        if(speed == 0 && audio.isPlaying) {
+            audio.Pause();
+        }
 		gameObject.transform.Translate (Vector3.right * speed * direction * Time.deltaTime);
 
 	}
