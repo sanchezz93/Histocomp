@@ -7,8 +7,8 @@ public class QuestionController4 : MonoBehaviour
 
     //ESTO SE MODIFICA PARA CADA PUERTA
     //Dos arreglos, preguntas (3), respuestas (4 por cada pregunta)
-    public string[] arrPreguntas = new string[] {"Todas las siguientes son marcas de computadoras:", "¿En qué año inició la informatica móvil?", "¿Con qué inicia la era de la informática móvil?"};
-    public string[] arrRespuestas = new string[] {"HP, KIA, Dell", "Sony, HP, Nissan", "HP, Dell, Apple", "Dell, KIA, Sony", "1985", "1990", "1995", "1980", "Celulares", "Computadoras de bolsillo", "Tablets", "Realidad aumentada"};
+	public string[] arrPreguntas;
+	public string[] arrRespuestas;
     //0 -3 (2, 3ra)
     // 4 -7 (7, 4ta)
     //8 - 11 (9, 2da)
@@ -32,6 +32,21 @@ public class QuestionController4 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		arrPreguntas = new string[] {"Todas las siguientes son marcas de computadoras:", 
+			"¿En qué año inició la informatica móvil?", 
+			"¿Con qué inicia la era de la informática móvil?"};
+		arrRespuestas = new string[] {"HP, KIA, Dell", 
+			"Sony, HP, Nissan", 
+			"HP, Dell, Apple", 
+			"Dell, KIA, Sony", 
+			"1985", 
+			"1990", 
+			"1995", 
+			"1980", 
+			"Celulares", 
+			"Computadoras de bolsillo", 
+			"Tablets", 
+			"Realidad aumentada"};
         resetButtonColors();
         /*
 		 *Al iniciar el programa, se carga una pregunta aleatoria para mi puerta. 
@@ -81,15 +96,14 @@ public class QuestionController4 : MonoBehaviour
             switch (iPregunta)
             {
                 case 0:
-                    if (bt2.GetComponent<Renderer>().material.color == answer)
+                    if (bt3.GetComponent<Renderer>().material.color == answer)
                     {
                         rightAnswer();
                     }
                     else
                     {
                         Start();
-                        MovementSystem.speed = 1.5f;
-                        MovementSystem.direction = -1;
+						fail ();
                     }
                     break;
                 case 1:
@@ -100,20 +114,18 @@ public class QuestionController4 : MonoBehaviour
                     else
                     {
                         Start();
-                        MovementSystem.speed = 1.5f;
-                        MovementSystem.direction = -1;
+						fail ();
                     }
                     break;
                 case 2:
-                    if (bt3.GetComponent<Renderer>().material.color == answer)
+                    if (bt2.GetComponent<Renderer>().material.color == answer)
                     {
                         rightAnswer();
                     }
                     else
                     {
                         Start();
-                        MovementSystem.speed = 1.5f;
-                        MovementSystem.direction = -1;
+						fail ();
                     }
                     break;
             }
@@ -130,10 +142,19 @@ public class QuestionController4 : MonoBehaviour
 
     void rightAnswer()
     {
+		Debug.Log ("CORRECT ANSWER");
         MovementSystem.speed = 1.5f;
         MovementSystem.direction = 1;
         pregunta.text = "Correcto!";
+
+		flag = false;
     }
+
+	void fail() {
+		Debug.Log ("INCORRECT ANSWER");
+		MovementSystem.speed = 1.5f;
+		MovementSystem.direction = -1;
+	}
 
     public void OnPointerClick(PointerEventData data)
     {

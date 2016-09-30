@@ -107,28 +107,31 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   /// ray sent from the camera on the object.
   public void OnGazeStay(Camera camera, GameObject targetObject, Vector3 intersectionPosition,
                          bool isInteractive) {
+		int currentRoom = MovementSystem.roomNumber - 2;
+
         SetGazeTarget(intersectionPosition, isInteractive);
 		if (!MovementSystem.viewingArt && MovementSystem.speed == 0 && (Input.GetMouseButtonDown (0) || GvrViewer.Instance.Triggered)) {
-			if (!qstController.flag) {
+			Debug.Log ("gaze stay: " + currentRoom);
+			if (currentRoom == 1 && !qstController.flag) {
 				targetObject.GetComponent<Renderer> ().material.color = new Color (0f, 0.191f, 0.60f);
 				qstController.flag = true;
 				MovementSystem.viewingArt = true;
                 Debug.Log("qst1");
 			}
-            else if (!qstController2.flag) {
+			if (currentRoom == 2 && !qstController2.flag) {
 				targetObject.GetComponent<Renderer> ().material.color = new Color (0f, 0.191f, 0.60f);
 				qstController2.flag = true;
 				MovementSystem.viewingArt = true;
                 Debug.Log("qst2");
             }
-            else if (!qstController3.flag)
+			if (currentRoom == 3 && !qstController3.flag)
             {
                 targetObject.GetComponent<Renderer>().material.color = new Color(0f, 0.191f, 0.60f);
                 qstController3.flag = true;
                 MovementSystem.viewingArt = true;
                 Debug.Log("qst3");
             }
-            else if (!qstController4.flag)
+			if (currentRoom == 4 && !qstController4.flag)
             {
                 targetObject.GetComponent<Renderer>().material.color = new Color(0f, 0.191f, 0.60f);
                 qstController4.flag = true;

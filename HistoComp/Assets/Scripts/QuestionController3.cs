@@ -7,8 +7,8 @@ public class QuestionController3 : MonoBehaviour
 
     //ESTO SE MODIFICA PARA CADA PUERTA
     //Dos arreglos, preguntas (3), respuestas (4 por cada pregunta)
-    public string[] arrPreguntas = new string[] {"¿En qué año se desarrollo la IBM 610?", "¿Quién creo la IBM 610?", "¿Qué incluía la IBM 610?"};
-    public string[] arrRespuestas = new string[] {"1954", "1955", "1957", "1956", "John Mauchly", "John Neumann", "John Eckert", "John Lentz", "Teclado y bocinas", "Teclado y mouse", "Bocinas y mouse", "Solo mouse"};
+	public string[] arrPreguntas;
+	public string[] arrRespuestas;
     //0 -3 (2, 3ra)
     // 4 -7 (7, 4ta)
     //8 - 11 (9, 2da)
@@ -32,6 +32,21 @@ public class QuestionController3 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		arrPreguntas = new string[] {"¿En qué año se desarrollo la IBM 610?", 
+			"¿Quién creo la IBM 610?", 
+			"¿Qué incluía la IBM 610?"};
+		arrRespuestas = new string[] {"1954",
+			"1955",
+			"1957", 
+			"1956", 
+			"John Mauchly", 
+			"John Neumann", 
+			"John Eckert", 
+			"John Lentz", 
+			"Teclado y bocinas", 
+			"Teclado y mouse", 
+			"Bocinas y mouse", 
+			"Solo mouse"};
         resetButtonColors();
         /*
 		 *Al iniciar el programa, se carga una pregunta aleatoria para mi puerta. 
@@ -81,7 +96,7 @@ public class QuestionController3 : MonoBehaviour
             switch (iPregunta)
             {
                 case 0:
-                    if (bt2.GetComponent<Renderer>().material.color == answer)
+                    if (bt3.GetComponent<Renderer>().material.color == answer)
                     {
                         rightAnswer();
                     }
@@ -105,7 +120,7 @@ public class QuestionController3 : MonoBehaviour
                     }
                     break;
                 case 2:
-                    if (bt3.GetComponent<Renderer>().material.color == answer)
+                    if (bt2.GetComponent<Renderer>().material.color == answer)
                     {
                         rightAnswer();
                     }
@@ -130,10 +145,18 @@ public class QuestionController3 : MonoBehaviour
 
     void rightAnswer()
     {
+		Debug.Log ("CORRECT ANSWER");
         MovementSystem.speed = 1.5f;
         MovementSystem.direction = 1;
         pregunta.text = "Correcto!";
+		flag = false;
     }
+
+	void fail() {
+		Debug.Log ("INCORRECT ANSWER");
+		MovementSystem.speed = 1.5f;
+		MovementSystem.direction = -1;
+	}
 
     public void OnPointerClick(PointerEventData data)
     {

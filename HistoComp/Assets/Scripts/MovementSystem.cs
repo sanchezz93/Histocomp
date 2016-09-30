@@ -19,8 +19,8 @@ public class MovementSystem : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (viewingArt == true && speed == 0 && (GvrViewer.Instance.Triggered || Input.GetKeyDown("space"))) {
-			Debug.Log ("PRESS");
+		if (roomNumber <= 6 && viewingArt == true && speed == 0 && (GvrViewer.Instance.Triggered || Input.GetKeyDown("space"))) {
+			Debug.Log ("PRESS MOVEMENT");
 			speed = VELOCITY;
 		}
 		gameObject.transform.Translate (Vector3.right * speed * direction * Time.deltaTime);
@@ -34,8 +34,9 @@ public class MovementSystem : MonoBehaviour {
 			viewingArt = true;
 			if (roomNumber <= 5) {
 				SceneManager.LoadScene ("Room" + roomNumber, LoadSceneMode.Additive);
-				roomNumber++;
 			}
+			roomNumber++;
+
 				
 		} else if (direction == -1 && other.gameObject.tag == "brake-reverse") {
 			speed = 0;
